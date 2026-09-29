@@ -1,0 +1,17 @@
+{
+  "login": {
+    "title": "Sign in to Namaa",
+    "tenantSlug": "Company ID",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "error": "Invalid credentials"
+  },
+  "dashboard": {
+    "title": "Today",
+    "pendingApprovals": "Pending approvals",
+    "openTasks": "Open tasks",
+    "unassignedConversations": "Unassigned conversations",
+    "empty": "Nothing needs your attention yet."
+  }
+}
