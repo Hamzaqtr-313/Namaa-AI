@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { locales } from '@/i18n/request';
 import '../globals.css';
 
 export const metadata: Metadata = {
@@ -9,9 +8,10 @@ export const metadata: Metadata = {
   description: 'A privacy-first AI operations copilot for SMEs',
 };
 
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
+// Every page under [locale] reads runtime auth/session state client-side, so
+// there's nothing to prerender statically — generateStaticParams here would
+// conflict with next-intl's getMessages(), which relies on request headers.
+export const dynamic = 'force-dynamic';
 
 export default async function LocaleLayout({
   children,

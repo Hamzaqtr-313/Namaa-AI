@@ -41,8 +41,9 @@ packages = ["app"]
 asyncio_mode = "auto"
 
 [tool.ruff]
-line-length = 110
+line-length = 130
 target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP"]
+ignore = ["UP046"]  # PEP 695 generics don't mix cleanly with Pydantic's Generic[T] models

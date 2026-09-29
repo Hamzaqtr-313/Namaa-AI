@@ -1,5 +1,5 @@
 import uuid
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from typing import Any, Literal
 
 from jose import JWTError, jwt
@@ -26,7 +26,7 @@ def create_token(
     role: str,
     token_type: TokenType,
 ) -> str:
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     if token_type == "access":
         expire = now + timedelta(minutes=settings.access_token_expire_minutes)
     else:
